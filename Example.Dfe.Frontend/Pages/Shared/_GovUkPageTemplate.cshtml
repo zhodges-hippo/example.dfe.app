@@ -2,50 +2,50 @@
 <html lang="en" class="govuk-template govuk-template--rebranded">
 
 <head>
-  <meta charset="utf-8">
-  <title>@ViewData["Title"] - GOV.UK</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#1d70b8">
+    <meta charset="utf-8">
+    <title>@ViewData["Title"] - GOV.UK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#1d70b8">
 
-  <gds-html-head/>
-</head>
+    @Html.GovUkFrontendStyleImports()
+</head> 
 
 <body class="govuk-template__body">
 
-<gds-body-start/>
+@Html.GovUkFrontendJsEnabledScript()
 
 <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
 
 @if (IsSectionDefined("BodyStart"))
 {
-  @RenderSection("BodyStart", required: false)
+    @RenderSection("BodyStart", required: false)
 }
 
 @if (IsSectionDefined("Header"))
 {
-  @RenderSection("Header", required: false)
+    @RenderSection("Header", required: false)
 }
 else
 {
-  <govuk-header home-page-url="/"/>
+    <govuk-header home-page-url="/" />
 }
 
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper" id="main-content">
-    @RenderBody()
-  </main>
+    <main class="govuk-main-wrapper" id="main-content">
+        @RenderBody()
+    </main>
 </div>
 
 @if (IsSectionDefined("Footer"))
 {
-  @RenderSection("Footer", required: false)
+    @RenderSection("Footer", required: false)
 }
 else
 {
-  <govuk-footer />
+    <govuk-footer />
 }
 
-<gds-body-end />
+@Html.GovUkFrontendScriptImports()
 </body>
 
 </html>
